@@ -1,0 +1,28 @@
+version: "2"
+services:
+  mongodb:
+    image: mongo:latest
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $DB_PORT:$DB_PORT
+    volumes:
+      - db:/data/db
+  app:
+    depends_on:
+      - mongodb
+    build: .
+    restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $PORT:$PORT
+    environment:
+      - DB_HOST=mongodb
+      - PORT=$PORT
+      - DB_NAME=$DB_NAME
+      - DB_PORT=$DB_PORT
+      - jwt_key=$jwt_key
+    stdin_open: true
+    tty: true
+volumes:
+  db:
