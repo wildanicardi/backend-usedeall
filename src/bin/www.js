@@ -14,8 +14,9 @@ require("dotenv").config();
 
 let port = normalizePort(process.env.PORT);
 app.set("port", port);
+const {DB_HOST,DB_PORT,DB_NAME} = process.env;
 mongoose
-  .connect(process.env.DB_URI, {
+  .connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
