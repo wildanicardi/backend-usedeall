@@ -2,18 +2,28 @@
 
 Backend Developer Candidate Test Usedeall.
 
-## Installation
-
-setelah melakukan clone pada repository ini, lakukan instalasi node package manager terlebih dahulu,
+### Installation with docker-compose (Recommended)
 
 ```bash
-npm install
+git clone https://github.com/wildanicardi/backend-usedeall.git
+cd backend-usedeall
+docker-compose up -d
 ```
 
-copy isi file `.env.example` dan buat file baru dengan nama `.env`,
 
+### Installation (Manually)
 
-## Untuk Menjalanakan Program
+#### Requirements
+
+* You need mongodb installed and running on your computer. or alternatively you can use docker
+
+* copy the contents of the file `.env.example` and create a new file with the name `.env`,,
+
+```bash
+git clone https://github.com/wildanicardi/backend-usedeall.git
+cd backend-usedeall
+npm install
+```
 
 Mode Production
 
@@ -27,6 +37,6 @@ Mode Development
 npm run watch
 ```
 
-## Link Dokumentasi
+## Documentation Link
 
 [POSTMAN](https://documenter.getpostman.com/view/6225373/UzQuPRJp) Postman
