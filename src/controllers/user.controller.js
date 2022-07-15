@@ -51,12 +51,12 @@ async function list(req, res) {
     user = await userModel
       .find({ role: role })
       .sort({ _id: -1 })
-      .select("-__v");
+      .select(["-password","-__v"]);
   } else {
     user = await userModel
       .find()
       .sort({ _id: -1 })
-      .select("-__v");
+      .select(["-password","-__v"]);
   }
   response.setMessage("Get All User");
   response.setData(user);
@@ -85,7 +85,7 @@ async function update(req, res) {
 async function show(req, res) {
   const response = new Response();
   const { userId } = req.params;
-  const userData = await userModel.find({ _id: userId }).select("-__v");
+  const userData = await userModel.find({ _id: userId }).select(["-password","-__v"]);
   response.setMessage("Detail User");
   response.setData(userData);
   return res.status(StatusCodes.OK).json(response);

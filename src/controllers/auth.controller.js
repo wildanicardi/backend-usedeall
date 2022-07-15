@@ -103,7 +103,7 @@ async function profile(req, res) {
   const { userId } = req.user;
   const response = new Response();
   try {
-    const user = await userModel.findById(userId);
+    const user = await userModel.findById(userId).select(["-password","-__v"]);
     response.setMessage("Profile User");
     response.setData(user);
     return res.status(StatusCodes.OK).json(response);
