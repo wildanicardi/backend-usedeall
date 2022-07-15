@@ -30,6 +30,12 @@ async function register(req, res) {
     response.setStatus("False");
     return res.status(StatusCodes.BAD_REQUEST).json(response);
   }
+  const usernameExist = await userModel.findOne({ username });
+  if (usernameExist) {
+    response.setMessage("Username already exist");
+    response.setStatus("False");
+    return res.status(StatusCodes.BAD_REQUEST).json(response);
+  }
   const hashPassword = await bcrypt.hash(req.body.password, 10);
   try {
     const newUser = await userModel.create({
@@ -54,20 +60,18 @@ async function register(req, res) {
 async function login(req, res) {
   let user;
   const response = new Response();
-  const { email, password } = req.body;
-  const { error } = await authValidation.loginValidation({ email, password });
+  const { username, password } = req.body;
+  const { error } = await authValidation.loginValidation({ username, password });
   if (error) {
     response.setMessage(error.details[0].message);
     response.setStatus(false);
     return res.status(StatusCodes.BAD_REQUEST).json(response);
   }
-  if (req.body.email) {
-    user = await userModel.findOne({ email });
-    if (!user) {
-      response.setMessage("Email Not Found");
-      response.setStatus("False");
-      return res.status(StatusCodes.UNAUTHORIZED).json(response);
-    }
+  user = await userModel.findOne({ username });
+  if (!user) {
+    response.setMessage("Username Not Found");
+    response.setStatus("False");
+    return res.status(StatusCodes.UNAUTHORIZED).json(response);
   }
   const passwordCheck = await bcrypt.compare(password, user.password);
   if (!passwordCheck) {
