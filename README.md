@@ -39,4 +39,4 @@ npm run watch
 
 ## Documentation Link
 
-[POSTMAN](https://documenter.getpostman.com/view/6225373/UzQuPRJp) Postman
+[POSTMAN](https://documenter.getpostman.com/view/6225373/UzQuPRJp)
