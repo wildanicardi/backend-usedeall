@@ -44,7 +44,7 @@ npm run watch
 - Path : ` /api/auth/login`
 - Method : `POST`
 - Response : ` 200`
-- Field : `email, password `
+- Field : `username, password `
 
 ### Register
 
