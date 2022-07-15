@@ -68,6 +68,39 @@ npm run watch
 - Field : `firstName,lastName,username, email`
 - Authentication : `Bearer Token`
 
+### Get All User
+
+- Path : ` /api/user`
+- Method : `GET`
+- Response : ` 200`
+- Authentication : `Bearer Token`
+### GET Detail User 
+
+- Path : ` /api/user/:id`
+- Method : `GET`
+- Response : ` 200`
+- Authentication : `Bearer Token`
+### Create User 
+
+- Path : ` /api/user`
+- Method : `POST`
+- Response : ` 200`
+- Field : `firstName,lastName,username, email,password`
+- Authentication : `Bearer Token`
+### Update User
+
+- Path : ` /api/user/:id`
+- Method : `PUT`
+- Response : ` 200`
+- Field : `firstName,lastName,username`
+- Authentication : `Bearer Token`
+### Delete User
+
+- Path : ` /api/user/:id`
+- Method : `POST`
+- Response : `DELETE`
+- Authentication : `Bearer Token`
+
 ## Documentation Link
 
 [POSTMAN](https://documenter.getpostman.com/view/6225373/UzQuPRJp)
