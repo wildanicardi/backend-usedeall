@@ -37,6 +37,37 @@ Mode Development
 npm run watch
 ```
 
+## API Endpoints
+
+### Login
+
+- Path : ` /api/auth/login`
+- Method : `POST`
+- Response : ` 200`
+- Field : `email, password `
+
+### Register
+
+- Path : ` /api/auth/register`
+- Method : `POST`
+- Field : `firstName,lastName,username, email, password `
+- Response : ` 200`
+
+### Detail Profile User Login
+
+- Path : ` /api/auth/me`
+- Method : `GET`
+- Response : ` 200`
+- Authentication : `Bearer Token`
+
+### Update Profile User Login
+
+- Path : ` /api/auth/profile`
+- Method : `POST`
+- Response : ` 200`
+- Field : `firstName,lastName,username, email`
+- Authentication : `Bearer Token`
+
 ## Documentation Link
 
 [POSTMAN](https://documenter.getpostman.com/view/6225373/UzQuPRJp)
